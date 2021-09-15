@@ -3,22 +3,6 @@ import cheerio from 'cheerio';
 import axios from 'axios';
 
 export default function ItemFetch(props) {
-  if (typeof props === 'string') {
-    if (props.includes('1999.co.jp')) {
-      return fetchHS(props);
-    } else if (props.includes('amiami')) {
-      return fetchAA(props);
-    } else {
-      return console.log('Invalid URL');
-    }
-  } else if (props.hasOwnProperty('AAurl')) {
-    return fetchStock(props);
-  } else if (Array.isArray(props)) {
-    return props.map(item => {
-      return (item.url.includes('1999.co.jp')) ? fetchHS(item.url) : fetchAA(item.url);
-    })
-  }
-
   const fetchHS = async (url) => {
     const itemID = url.substr(url.length - 8);
     const itemType = itemID.substring(2, 4);
@@ -116,5 +100,21 @@ export default function ItemFetch(props) {
       console.log('HS updated!');
     }
     return item;
+  }
+
+  if (typeof props === 'string') {
+    if (props.includes('1999.co.jp')) {
+      return fetchHS(props);
+    } else if (props.includes('amiami')) {
+      return fetchAA(props);
+    } else {
+      return console.log('Invalid URL');
+    }
+  } else if (props.hasOwnProperty('AAurl')) {
+    return fetchStock(props);
+  } else if (Array.isArray(props)) {
+    return props.map(item => {
+      return (item.url.includes('1999.co.jp')) ? fetchHS(item.url) : fetchAA(item.url);
+    })
   }
 }

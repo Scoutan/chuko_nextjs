@@ -2,6 +2,7 @@ import React from 'react';
 import ItemMenu from './ItemMenu';
 import ItemList from './ItemList';
 import ItemFetch from './ItemFetch';
+import PopUp from './PopUp';
 import FetchTestDB from '../pages/api/FetchTestDB.json';
 import LoadStatic from '../pages/api/db.json';
 
@@ -15,7 +16,9 @@ export default class ItemWatch extends React.Component {
       loadingItems: 0,
       loadingSearch: false,
       pendingStockUpdate: [],
-      inputError: false
+      inputError: false,
+      togglePopUp: false,
+      popUp: { header: '', message: '' }
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -97,15 +100,23 @@ export default class ItemWatch extends React.Component {
 
       this.setState({
         items: items,
-        pendingStockUpdate: this.state.pendingStockUpdate.filter(index => index !== itemIndex)
+        pendingStockUpdate: this.state.pendingStockUpdate.filter(index => index !== itemIndex),
+        togglePopUp: true,
+        popUp: { header: result['AAtitle'], message: 'Stock updated!' }
       });
     });
+
+
   }
 
   async handleRemoveItem(event) {
     const items = this.state.items;
     items.splice(event.target.value, 1);
     this.setState({ items: items });
+  }
+
+  togglePopUp() {
+    this.setState({ togglePopUp: !this.state.togglePopUp })
   }
 
   render() {
@@ -129,6 +140,7 @@ export default class ItemWatch extends React.Component {
           fetchStock={this.handleFetchStock}
           removeItem={this.handleRemoveItem}
         />
+        {this.state.togglePopUp ? <PopUp popUp={this.state.popUp} togglePopUp={() => this.togglePopUp()} /> : null}
       </div>
     );
   }
