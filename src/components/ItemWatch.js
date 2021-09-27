@@ -4,7 +4,7 @@ import ItemList from './ItemList';
 import ItemFetch from './ItemFetch';
 import PopUp from './PopUp';
 import FetchTestDB from '../pages/api/FetchTestDB.json';
-import LoadStatic from '../pages/api/db.json';
+//import LoadStatic from '../pages/api/db.json';
 
 export default class ItemWatch extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export default class ItemWatch extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ items: [...LoadStatic.items] });
+    //this.setState({ items: [...LoadStatic.items] });
   }
 
   async handleLoad() {
@@ -61,14 +61,8 @@ export default class ItemWatch extends React.Component {
     })
   }
 
-  async handleClear() {
-    /*const res = await itemsAPI.get('/items');
-
-    res.data.map(async item => {
-      console.log("Cleared ID: " + item.id);
-      return itemsAPI.delete(`/items/${item.id}`)
-    })
-    */
+  handleClear() {
+    this.setState({ items: [] });
   }
 
   handleChange(event) {
@@ -105,8 +99,6 @@ export default class ItemWatch extends React.Component {
         popUp: { header: result['AAtitle'], message: 'Stock updated!' }
       });
     });
-
-
   }
 
   async handleRemoveItem(event) {
