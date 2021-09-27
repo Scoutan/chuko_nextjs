@@ -163,6 +163,15 @@ a:hover {
   margin: 0 0 10px 0;
 }
 
+.examples {
+  color: grey;
+  font-size: 0.9em;
+}
+
+.examples span {
+  font-weight: 700;
+}
+
 .button {
   background-color: #e0e1e2;
   border: none;
