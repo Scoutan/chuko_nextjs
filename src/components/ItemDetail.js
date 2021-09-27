@@ -41,7 +41,7 @@ export default function ItemDetail({ item, pendingStockUpdate, fetchStock, remov
         </div>
         <div className="section">
           <a href={item.MFCurl} title={item.MFCurl} target="_blank" rel="noreferrer">
-            MyFigureCollection"s page
+            Go to MyFigureCollection
           </a>
         </div>
         <div className="section">
