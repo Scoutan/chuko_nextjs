@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export default function ItemDetail({ item, pendingStockUpdate, fetchStock, removeItem, index, containerClass }) {
   useEffect(() => {
-    if (item.HSstock !== 'In Stock' || item.AAstock === '0') {
-      return document.getElementById(item.itemID).classList.add('red');
+    if (item.HSstock !== "In Stock" || item.AAstock === "0") {
+      return document.getElementById(item.itemID).classList.add("red");
     }
   });
 
@@ -20,7 +20,7 @@ export default function ItemDetail({ item, pendingStockUpdate, fetchStock, remov
           <div className="box">
             <div className="icon">
               <a href={item.HSurl} title={item.HSurl} target="_blank" rel="noreferrer">
-                <img src='https://www.1999.co.jp/images/hd_logomark_e.png' alt='HobbySearch' />
+                <img src="https://www.1999.co.jp/images/hd_logomark_e.png" alt="HobbySearch" />
               </a>
             </div>
             <b>{item.HSprice}</b>
@@ -31,7 +31,7 @@ export default function ItemDetail({ item, pendingStockUpdate, fetchStock, remov
           <div className="box">
             <div className="icon">
               <a href={item.AAurl} title={item.AAurl} target="_blank" rel="noreferrer">
-                <img src='https://www.amiami.com/images/common/site_logo.png' alt='amiami' />
+                <img src="https://www.amiami.com/images/common/site_logo.png" alt="amiami" />
               </a>
             </div>
             <b>{item.AAprice}</b>
@@ -41,7 +41,7 @@ export default function ItemDetail({ item, pendingStockUpdate, fetchStock, remov
         </div>
         <div className="section">
           <a href={item.MFCurl} title={item.MFCurl} target="_blank" rel="noreferrer">
-            MyFigureCollection's page
+            MyFigureCollection"s page
           </a>
         </div>
         <div className="section">
