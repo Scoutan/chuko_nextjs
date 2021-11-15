@@ -1,5 +1,7 @@
 <h1>Chuko</h1>
 
+<h2>Deployment of project has been taken down as the fetch target's api has changed and so my code needs to be updated to avoid errors.</h2>
+
 This is my first personal project using React. The conception of this project has been inspired by a website that I have discovered recently, <a href="https://buyfriend.moe">buyfriend.moe</a>. Currently, its central function is to fetch public information found on other websites and display it on one page, for ease of viewing. The scope of this project is limited to shopping for figures and hobbies, notably from japan, e.g. “<a href="https://amiami.com">amiami.com</a>”.
 
 <h2>Sections</h2>
